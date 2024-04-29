@@ -1,4 +1,3 @@
-
 public class Candidatura {
 	String nome;
 	int data_nascimento;
