@@ -1,4 +1,3 @@
-
 public class Vagas {
 	String titulo;
 	String ong;
