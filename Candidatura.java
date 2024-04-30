@@ -1,6 +1,6 @@
 public class Candidatura {
 	String nome;
-	int data_nascimento;
+	String data_nascimento;
 	String descricao;
 	public String getNome() {
 		return nome;
@@ -8,10 +8,10 @@ public class Candidatura {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public int getData_nascimento() {
+	public String getData_nascimento() {
 		return data_nascimento;
 	}
-	public void setData_nascimento(int data_nascimento) {
+	public void setData_nascimento(String data_nascimento) {
 		this.data_nascimento = data_nascimento;
 	}
 	public String getDescricao() {
@@ -20,7 +20,7 @@ public class Candidatura {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	public Candidatura(String nome, int data_nascimento, String descricao) {
+	public Candidatura(String nome, String data_nascimento, String descricao) {
 		super();
 		this.nome = nome;
 		this.data_nascimento = data_nascimento;
@@ -28,7 +28,7 @@ public class Candidatura {
 	}
 	public Candidatura() {
 		nome = "";
-		data_nascimento = 0;
+		data_nascimento = "";
 		descricao = "";
 	}
 	
