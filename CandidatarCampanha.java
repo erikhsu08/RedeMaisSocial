@@ -85,10 +85,9 @@ public class CandidatarCampanha {
 							System.out.println("Nome Completo: ");
 							String nome = scanner.nextLine();
 							candidatura.setNome(nome);
-							System.out.println("Data de Nascimento (formato DD/MMA/AAAA, com /): ");
+							System.out.println("Data de Nascimento (formato DD/MM/AAAA, com /): ");
 							String data_nascimento = scanner.nextLine();
 							candidatura.setData_nascimento(data_nascimento);
-							scanner.nextLine();
 							System.out.println("Descrição (um breve resumo sobre você e motivação de sua candidatura): ");
 							String descricao = scanner.nextLine();
 							candidatura.setDescricao(descricao);
