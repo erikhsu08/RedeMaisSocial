@@ -15,7 +15,7 @@ public class Menu {
         //Inicialização do Scanner e da variável que guarda a opção do menu
         Scanner scanner = new Scanner(System.in);
         int opcao = 0;
-        
+
         CtrlVagas controladorVagas = new CtrlVagas();
         CtrlCandidaturas conroladorCandidaturas = new CtrlCandidaturas();
 
@@ -83,7 +83,7 @@ public class Menu {
                                 System.out.println("Descrição (um breve resumo sobre você e motivação de sua candidatura): ");
                                 String descricao = scanner.nextLine();
                                 //candidatura.setDescricao(descricao);
-                                conroladorCandidaturas.incrementaFormulario(nome,data_nascimento,descricao);
+                                conroladorCandidaturas.solicitaCandidatura(nome,data_nascimento,descricao);
                                 //listaCandidaturas.add(candidatura); //Adiciona a candidatura criada na lista de candidaturas
                                 System.out.println("Candidatura realizada com sucesso!");
                             } else {//Caso o usuário não concorde com os termos, o processo de candidatura é finalizado e é voltado para o menu de opções
