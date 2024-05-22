@@ -71,7 +71,7 @@ public class Menu {
                             System.out.println("Aceita os termos (sim / não): ");
                             String aceite = scanner.nextLine(); //Guarda a resposta de aceitação do usuário
                             if (aceite.equals("sim")){//Caso o usuário concorde com os termos, o processo de candidatura continua
-                                Candidatura candidatura = new Candidatura();
+                                //Candidatura candidatura = new Candidatura();
                                 System.out.println("------- Formulário de Candidatura -------");
                                 System.out.println("Por favor, digite suas informações.");
                                 System.out.println("Nome Completo: ");
