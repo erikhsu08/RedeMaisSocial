@@ -12,14 +12,14 @@ public class CtrlVagas {
         return BDVagas.getInstance().listarVagas();
     }
 
-    public boolean validaVaga(String titulo, String nomeCampanha){
-        boolean flag = false;
-        for (int i = 0; i < BDVagas.getInstance().listarVagas().size(); i++) {
-        	Vaga vaga = BDVagas.getInstance().listarVagas().get(i);
-            if (vaga.getTitulo().equals(titulo) && vaga.getCampanha().equals(nomeCampanha)) {
-                flag = true;
+    public boolean validaVaga(String titulo, String nomeCampanha) {
+        for (Vaga vaga : BDVagas.getInstance().listarVagas()) {
+            System.out.println("Comparando " + vaga.getTitulo() + " com " + titulo);
+            System.out.println("Comparando " + vaga.getCampanha() + " com " + nomeCampanha);
+            if (vaga.getTitulo().equalsIgnoreCase(titulo) && vaga.getCampanha().equalsIgnoreCase(nomeCampanha)) {
+                return true;
             }
         }
-        return flag;
+        return false;
     }
 }
