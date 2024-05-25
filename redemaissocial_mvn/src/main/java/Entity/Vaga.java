@@ -2,10 +2,8 @@ package Entity;
 
 public class Vaga {
     String titulo;
-    String ong;
-    String local;
     String campanha;
-    String descricao;
+    int qtd;
 
     public String getTitulo() {
         return titulo;
@@ -13,31 +11,30 @@ public class Vaga {
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
-    public String getOng() {
-        return ong;
+    public int getQtd() {
+        return qtd;
     }
-    public void setOng(String ong) {
-        this.ong = ong;
-    }
-    public String getLocal() {
-        return local;
-    }
-    public void setLocal(String local) {
-        this.local = local;
+    public void setQtd(String qtd) {
+        this.qtd = 0;
     }
     public String getCampanha() {
         return campanha;
     }
+
     public void setCampanha(String campanha) {
         this.campanha = campanha;
     }
 
 
-    public Vaga(String titulo, String ong, String local, String campanha) {
-        super();
-        this.titulo = titulo;
-        this.ong = ong;
-        this.local = local;
-        this.campanha = campanha;
+	public Vaga(String titulo, int quantidade, String campanha) {
+		this.titulo = titulo;
+		this.qtd = quantidade;
+		this.campanha = campanha;
+	}
+	
+	@Override
+    public String toString() {
+        return "Vaga [titulo=" + titulo + ", qtd=" + qtd + ", campanha=" + campanha + "]";
     }
+	
 }

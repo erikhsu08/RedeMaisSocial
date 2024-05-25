@@ -1,9 +1,16 @@
 package Entity;
+
+import java.util.LinkedList;
+
+
 public class Campanha {
 	String nome;
 	String descricao;
 	String local;
 	String data;
+	int num_vagas;
+	LinkedList<Vaga> vagas;
+	
 	public String getNome() {
 		return nome;
 	}
@@ -28,18 +35,31 @@ public class Campanha {
 	public void setData(String data) {
 		this.data = data;
 	}
-	public Campanha(String nome, String descricao, String local, String data) {
+	public Campanha(String nome, String descricao, String local, String data, int num_vagas) {
 		super();
 		this.nome = nome;
 		this.descricao = descricao;
 		this.local = local;
 		this.data = data;
+		this.num_vagas = num_vagas;
+		this.vagas = new LinkedList<>();
 	}
 	public Campanha() {
-		nome = "";
-		descricao = "";
-		local = "";
-		data = "";
+		this.vagas = new LinkedList<>();
 	}
+	
+	public void adicionarVaga(Vaga vaga) {
+        this.vagas.add(vaga);
+    }
+	
+	public LinkedList<Vaga> getVagas() {
+        return vagas;
+    }
+	
+	@Override
+    public String toString() {
+        return "Campanha [nome=" + nome + ", descricao=" + descricao + ", local=" + local + ", data=" + data
+                + ", num_vagas=" + num_vagas + ", vagas=" + vagas + "]";
+    }
 	
 }
