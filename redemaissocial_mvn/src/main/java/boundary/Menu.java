@@ -33,13 +33,13 @@ public class Menu {
                 scanner.nextLine();
 
                 if (ong_ou_voluntario == 1 || ong_ou_voluntario == 2) {
-                	//Login
+                	/*/Login
                     System.out.println("LOGIN (Meramente ilustrativo)");
                     System.out.println("Digite seu e-mail: ");
                     String email = scanner.nextLine();
                     System.out.println("Digite sua senha: ");
                     String senha = scanner.nextLine();
-
+                    */
                     //Menu
                     if (ong_ou_voluntario == 1) { //menu caso o usuário seja Voluntário
                         do {
@@ -50,6 +50,7 @@ public class Menu {
                             System.out.println("Digite uma opção: ");
 
                             opcao = scanner.nextInt(); //Guarda a opção digitada pelo usuário
+                            scanner.nextLine();
 
                             switch(opcao) {
                                 case 1:
@@ -63,14 +64,14 @@ public class Menu {
                                     }
                                     break;
                                 case 2:
-                                	
-                                	System.out.print("Digite o nome da campanha em que você quer se candidatar: ");
-                                    String nomeCampanha = scanner.nextLine();
-                                    
-                                    System.out.print("Digite o título da vaga que você quer se candidatar: ");
-                                    String titulo =  scanner.nextLine();
 
-                                    if (! controladorVagas.validaVaga(titulo,nomeCampanha)) {
+                                    System.out.print("Digite o nome da campanha em que você quer se candidatar: ");
+                                    String nomeCampanha = scanner.nextLine();
+
+                                    // Capturar o título da vaga
+                                    System.out.print("Digite o título da vaga que você quer se candidatar: ");
+                                    String titulo = scanner.nextLine();
+                                    if (!controladorVagas.validaVaga(titulo, nomeCampanha)) {
                                         System.out.println("Vaga não encontrada."); //Mensagem retornada caso a vaga e ong digitada não correspondam */
                                     }else {//Caso correspondam, o processo de candidatura continua
                                         System.out.println("Termos e condições: Pelo presente Termo de Adesão e ciente da Lei n. 9.608/1998 que rege o trabalho voluntário, decido espontaneamente\nrealizar atividade voluntária nesta organização. Declaro, ainda, que estou ciente de que o trabalho não será remunerado e que\nnão configurará vínculo empregatício ou gerará qualquer obrigação de natureza trabalhista, previdenciária ou afim. Declaro, por fim, \nque estou ciente de que eventuais danos pessoais ou materiais causados no exercício do trabalho voluntário serão de total e integral responsabilidade minha e não serão imputados à esta organização.\n");
