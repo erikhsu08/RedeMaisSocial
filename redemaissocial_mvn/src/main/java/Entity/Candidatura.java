@@ -4,6 +4,7 @@ public class Candidatura {
     String nome;
     String data_nascimento;
     String descricao;
+    
     public String getNome() {
         return nome;
     }
@@ -33,5 +34,11 @@ public class Candidatura {
         data_nascimento = "";
         descricao = "";
     }
+    @Override
+    public String toString() {
+        return "Canditatura [Nome do voluntário=" + nome + ", Descrição=" + descricao + ", Data de nascimento=" + data_nascimento + "]";
+    }
+
+    
 
 }

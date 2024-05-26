@@ -7,17 +7,19 @@ public class BDVagas {
     //LinkedLists utilizadas para armazenar as vagas existentes e candidaturas
     LinkedList<Vaga> listaVagas = new LinkedList<Vaga>();
 
-    //Criando vagas manualmente
-    public void adicionarVaga(Vaga vaga) {
-        listaVagas.add(vaga);
-    }
-
     public static BDVagas getInstance() {
         if (instance == null) {
             instance = new BDVagas();
         }
         return instance;
     }
+    
+    //Criando vagas manualmente
+    public void adicionarVaga(Vaga vaga) {
+        listaVagas.add(vaga);
+    }
+
+    
     public LinkedList<Vaga> listarVagas() {
         return this.listaVagas;
     }

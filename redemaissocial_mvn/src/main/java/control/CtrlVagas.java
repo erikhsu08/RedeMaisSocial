@@ -4,7 +4,6 @@ import Entity.Vaga;
 
 import java.util.LinkedList;
 import Entity.BDVagas;
-import Entity.Vaga;
 
 public class CtrlVagas {
 	

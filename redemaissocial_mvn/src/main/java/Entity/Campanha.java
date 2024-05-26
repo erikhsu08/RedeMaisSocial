@@ -35,6 +35,13 @@ public class Campanha {
 	public void setData(String data) {
 		this.data = data;
 	}
+	public int getNumVagas() {
+		return num_vagas;
+	}
+	public void setNumVagas(int num_vagas) {
+		this.num_vagas = num_vagas;
+	}
+	
 	public Campanha(String nome, String descricao, String local, String data, int num_vagas) {
 		super();
 		this.nome = nome;

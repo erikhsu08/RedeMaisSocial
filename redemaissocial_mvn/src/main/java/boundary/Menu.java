@@ -109,9 +109,8 @@ public class Menu {
                             System.out.println("Menu de opções:");
                             System.out.println("1. Listar Campanhas Existentes.");
                             System.out.println("2. Criar Campanha.");
-                            System.out.println("3.");
-                            System.out.println("4. Revisar Candidatura.");
-                            System.out.println("5. Voltar para a tela inicial de seleção de usuário.");
+                            System.out.println("3. Revisar Candidatura.");
+                            System.out.println("4. Voltar para a tela inicial de seleção de usuário.");
                             System.out.println("Digite uma opção: ");
 
                             opcao = scanner.nextInt(); //Guarda a opção digitada pelo usuário
@@ -151,19 +150,17 @@ public class Menu {
                                     String data_camp = scanner.nextLine();
                                     
                                     //campanha.setData(data_campanha);
-                                    
-                                    System.out.println("Digite o número de vagas totais disponíveis na campanha: ");
-                                    int num_vagas = scanner.nextInt();
-                                    
+  
+                                    int num_vagas = 0;
                                     controladorCampanhas.criarCampanha(nome_camp, desc_camp, local_camp, data_camp, num_vagas);
                                     
                                     Campanha campanha = controladorCampanhas.buscarCampanha(nome_camp);
                                     
                                     //Menu para adicionar tipos de vagas diferentes e suas quantidades
                                     System.out.println("Agora, adicione os tipos de vagas disponíveis e suas quantidades (ou sair)");
-                                    while(opcao_menu_vagas != 2) {
+                                    while(opcao_menu_vagas != 2 || campanha.getVagas().isEmpty()) {
                                     	System.out.println("1. Adicionar tipo de vaga disponível");
-                                        System.out.println("2. Sair\n");
+                                        System.out.println("2. Sair (É preciso ter adicionado pelo menos uma vaga para sair)\n");
                                         opcao_menu_vagas = scanner.nextInt();
                                      
                                         if (opcao_menu_vagas == 1) {
@@ -178,23 +175,52 @@ public class Menu {
                                             
                                             System.out.println("Vaga adicionada com sucesso.\n");
                                         }
+                                        
+                                        //Infere o numero de vagas da campanha pela somatoria das quantidades das vagas                                                                                                                                         
                                     }
+                                    for (Vaga vaga: campanha.getVagas()) {
+                                    	num_vagas += vaga.getQtd();
+                                    }
+                                    System.out.println(num_vagas);
+                                    campanha.setNumVagas(num_vagas);
+                                    System.out.println(campanha.getNumVagas()); 
                                     
                                     //listaCampanhas.add(campanha); //Adiciona a campanha criada na lista de campanhas
                                     System.out.println("Campanha criada com sucesso!\n");
                                     break;
                                 case 3:
-                                    break;
+                                	//Lista as canditaturas 
+                                	LinkedList<Candidatura> listaCandidaturas = controladorCandidaturas.listarCandidaturas();
+                                	if (listaCandidaturas.isEmpty()) {
+                                        System.out.println("Não há candidaturas para revisar.\n");
+                                    } else {
+                                        for (Candidatura cand : listaCandidaturas) {
+                                            System.out.println(cand.toString()); // Imprime a representação textual da vaga
+                                        }
+                                    }
+                                	
+                                	//Seleciona uma candidatura para revisar e aceita ou rejeita-a
+                                	System.out.println("Qual candidatura deseja revisar (Digite sua posicao na lista)\n");
+                                	int index = scanner.nextInt() - 1;
+                                	Candidatura cand = listaCandidaturas.get(index);
+                                	System.out.println("Deseja aceitar a candidatura do candidato" + cand.getNome() + "? (sim / não):\n");
+                                	String aceite = scanner.nextLine();
+                                	if (aceite.equals("sim")) {
+                                		controladorCandidaturas.aceitaCandidatura(cand);
+                                		System.out.println("Candidatura aceita!");
+                                	}
+                                	else {
+                                		System.out.println("Candidatura rejeitada!");
+                                	}
+                                	
+                                	break;
                                 case 4:
-
-                                    break;
-                                case 5:
-                                	//Volta paara a tela de seleção de usuário
+                                	//Volta para a tela de seleção de usuário
                                 	break;
                                 default:
                                 	System.out.println("Opção inválida. Por favor, digite novamente.\n");
                             } //fim do switch case
-                        } while (opcao != 5);
+                        } while (opcao != 4);
                     }
                 } else if (ong_ou_voluntario == 3) {
                 	break;
