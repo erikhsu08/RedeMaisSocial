@@ -15,9 +15,9 @@ public class CtrlCandidaturas {
         Candidatura cand = new Candidatura(nome,data_nascimento,descricao);
         BDCandidaturas.getInstance().adicionaCandidatura(cand);
     }
-    
+    //implementar rejeita candidatura(remove candidatura sem diminuir vagas da campanha).
     public void aceitaCandidatura(Candidatura cand) {
     	BDCandidaturas.getInstance().removeCandidatura(cand);
     }
-
+    //diminuir numero de vagas da campanha.
 }
