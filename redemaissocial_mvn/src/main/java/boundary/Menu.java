@@ -202,6 +202,7 @@ public class Menu {
                                 	//Seleciona uma candidatura para revisar e aceita ou rejeita-a
                                 	System.out.println("Qual candidatura deseja revisar (Digite sua posicao na lista)\n");
                                 	int index = scanner.nextInt() - 1;
+                                    scanner.nextLine();
                                 	Candidatura cand = listaCandidaturas.get(index);
                                 	System.out.println("Deseja aceitar a candidatura do candidato" + cand.getNome() + "? (sim / não):\n");
                                 	String aceite = scanner.nextLine();
