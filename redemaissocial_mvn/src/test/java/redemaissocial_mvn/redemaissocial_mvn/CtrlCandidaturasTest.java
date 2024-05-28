@@ -20,14 +20,14 @@ public class CtrlCandidaturasTest {
 
     @Test
     public void testSolicitaCandidatura() {
-        controlador.solicitaCandidatura("João", "01/01/2000", "Descrição Teste");
+        controlador.solicitaCandidatura("João", "01/01/2000", "Descrição Teste", "Cozinheiro");
         LinkedList<Candidatura> candidaturas = controlador.listarCandidaturas();
         assertFalse(candidaturas.isEmpty());
     }
 
     @Test
     public void testAceitaCandidatura() {
-        controlador.solicitaCandidatura("João", "01/01/2000", "Descrição Teste");
+        controlador.solicitaCandidatura("João", "01/01/2000", "Descrição Teste", "Cozinheiro");
         Candidatura candidatura = controlador.listarCandidaturas().get(0);
         controlador.aceitaCandidatura(candidatura);
         assertTrue(controlador.listarCandidaturas().isEmpty());
@@ -35,7 +35,7 @@ public class CtrlCandidaturasTest {
 
     @Test
     public void testRejeitaCandidatura() {
-        controlador.solicitaCandidatura("Maria", "02/02/1990", "Descrição de Teste 2");
+        controlador.solicitaCandidatura("Maria", "02/02/1990", "Descrição de Teste 2", "Engenheiro");
         Candidatura candidatura = controlador.listarCandidaturas().get(0);
         controlador.rejeitaCandidatura(candidatura);
         assertTrue(controlador.listarCandidaturas().isEmpty());
@@ -43,15 +43,15 @@ public class CtrlCandidaturasTest {
 
     @Test
     public void testListarCandidaturas() {
-        controlador.solicitaCandidatura("Ana", "03/03/1985", "Descrição de Teste 3");
-        controlador.solicitaCandidatura("Carlos", "04/04/1995", "Descrição de Teste 4");
+        controlador.solicitaCandidatura("Ana", "03/03/1985", "Descrição de Teste 3", "Desenvolvedor");
+        controlador.solicitaCandidatura("Carlos", "04/04/1995", "Descrição de Teste 4", "Analista");
         LinkedList<Candidatura> candidaturas = controlador.listarCandidaturas();
         assertEquals(2, candidaturas.size());
     }
 
     @Test
     public void testAceitaCandidaturaRemocao() {
-        controlador.solicitaCandidatura("Paulo", "05/05/2000", "Descrição de Teste 5");
+        controlador.solicitaCandidatura("Paulo", "05/05/2000", "Descrição de Teste 5", "Designer");
         Candidatura candidatura = controlador.listarCandidaturas().get(0);
         controlador.aceitaCandidatura(candidatura);
         assertTrue(controlador.listarCandidaturas().isEmpty());
