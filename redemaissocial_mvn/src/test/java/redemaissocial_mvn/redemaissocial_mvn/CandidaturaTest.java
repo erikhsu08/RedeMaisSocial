@@ -1,6 +1,8 @@
 package redemaissocial_mvn.redemaissocial_mvn;
 
 import Entity.Candidatura;
+import Entity.Vaga;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -12,7 +14,8 @@ public class CandidaturaTest {
 
     @Before
     public void setUp() {
-        candidatura = new Candidatura("João", "01/01/2000", "Descrição Teste");
+    	Vaga vaga = new Vaga("Cozinheiro", 5, "Campanha Marmitas pelas Ruas");
+        candidatura = new Candidatura("João", "01/01/2000", "Descrição Teste", vaga);
     }
 
     @Test
