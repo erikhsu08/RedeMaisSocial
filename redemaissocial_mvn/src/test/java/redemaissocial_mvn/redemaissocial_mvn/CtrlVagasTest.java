@@ -33,5 +33,12 @@ public class CtrlVagasTest {
         assertTrue(controlador.validaVaga("Cozinheiro", "Campanha Marmitas pelas Ruas"));
         assertFalse(controlador.validaVaga("Vaga Invalida", "Campanha Marmitas pelas Ruas"));
     }
-}
 
+    @Test
+    public void testVagaInvalida() {
+        Vaga vaga = new Vaga("Cozinheiro", 5, "Campanha Marmitas pelas Ruas");
+        controlador.listarVagas().add(vaga);
+        // Testando uma vaga que é claramente inválida
+        assertFalse(controlador.validaVaga("Engenheiro", "Campanha Inexistente"));
+    }
+}
