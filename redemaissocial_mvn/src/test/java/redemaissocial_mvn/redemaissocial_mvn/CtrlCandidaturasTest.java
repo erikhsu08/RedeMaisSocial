@@ -32,4 +32,28 @@ public class CtrlCandidaturasTest {
         controlador.aceitaCandidatura(candidatura);
         assertTrue(controlador.listarCandidaturas().isEmpty());
     }
+
+    @Test
+    public void testRejeitaCandidatura() {
+        controlador.solicitaCandidatura("Maria", "02/02/1990", "Descrição de Teste 2");
+        Candidatura candidatura = controlador.listarCandidaturas().get(0);
+        controlador.rejeitaCandidatura(candidatura);
+        assertTrue(controlador.listarCandidaturas().isEmpty());
+    }
+
+    @Test
+    public void testListarCandidaturas() {
+        controlador.solicitaCandidatura("Ana", "03/03/1985", "Descrição de Teste 3");
+        controlador.solicitaCandidatura("Carlos", "04/04/1995", "Descrição de Teste 4");
+        LinkedList<Candidatura> candidaturas = controlador.listarCandidaturas();
+        assertEquals(2, candidaturas.size());
+    }
+
+    @Test
+    public void testAceitaCandidaturaRemocao() {
+        controlador.solicitaCandidatura("Paulo", "05/05/2000", "Descrição de Teste 5");
+        Candidatura candidatura = controlador.listarCandidaturas().get(0);
+        controlador.aceitaCandidatura(candidatura);
+        assertTrue(controlador.listarCandidaturas().isEmpty());
+    }
 }
