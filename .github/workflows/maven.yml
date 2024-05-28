@@ -27,6 +27,10 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
+
+    - name: Navigate to the correct directory
+      run: cd RedeMaisSocial
+      
     - name: Build with Maven
       run: mvn -B package --file redemaissocial_mvn/pom.xml
 
