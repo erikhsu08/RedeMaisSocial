@@ -23,4 +23,12 @@ public class CtrlCandidaturas {
     public void rejeitaCandidatura(Candidatura cand) {
     	BDCandidaturas.getInstance().removeCandidatura(cand);
     }
+<<<<<<< HEAD
 }
+=======
+    //diminuir numero de vagas da campanha.
+    public void rejeitaCandidatura(Candidatura cand) {
+        BDCandidaturas.getInstance().removeCandidatura(cand);
+    }
+}
+>>>>>>> a4199b8fa7fa12e45759c73570dd2c6ee9f71388
