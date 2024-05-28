@@ -197,24 +197,22 @@ public class Menu {
                                         for (Candidatura cand : listaCandidaturas) {
                                             System.out.println(cand.toString()); // Imprime a representação textual da vaga
                                         }
-                                    }
-                                	
-                                	//Seleciona uma candidatura para revisar e aceita ou rejeita-a
-                                	System.out.println("Qual candidatura deseja revisar? (Digite sua posicao na lista)\n");
-                                	int index = scanner.nextInt() - 1;
-                                    scanner.nextLine();
-                                	Candidatura cand = listaCandidaturas.get(index);
-                                	System.out.println("Deseja aceitar a candidatura do candidato" + cand.getNome() + "? (sim / não):\n");
-                                	String aceite = scanner.nextLine();
-                                	if (aceite.equals("sim")) {
-                                		controladorCandidaturas.aceitaCandidatura(cand);
-                                		System.out.println("Candidatura aceita!");
-                                	}
-                                	else {
-                                		controladorCandidaturas.rejeitaCandidatura(cand);
-                                		System.out.println("Candidatura rejeitada!");
-                                	}
-                                	
+                                      //Seleciona uma candidatura para revisar e aceita ou rejeita-a
+                                    	System.out.println("Qual candidatura deseja revisar? (Digite sua posicao na lista)\n");
+                                    	int index = scanner.nextInt() - 1;
+                                        scanner.nextLine();
+                                    	Candidatura cand = listaCandidaturas.get(index);
+                                    	System.out.println("Deseja aceitar a candidatura do candidato " + cand.getNome() + "? (sim / não):\n");
+                                    	String aceite = scanner.nextLine();
+                                    	if (aceite.equals("sim")) {
+                                    		controladorCandidaturas.aceitaCandidatura(cand);
+                                    		System.out.println("Candidatura aceita!");
+                                    	}
+                                    	else {
+                                    		controladorCandidaturas.rejeitaCandidatura(cand);
+                                    		System.out.println("Candidatura rejeitada!");
+                                    	}
+                                    }                                                          
                                 	break;
                                 case 4:
                                 	//Volta para a tela de seleção de usuário
