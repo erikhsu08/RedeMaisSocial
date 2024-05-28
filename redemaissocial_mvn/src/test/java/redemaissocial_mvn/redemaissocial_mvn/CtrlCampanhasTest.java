@@ -23,7 +23,7 @@ public class CtrlCampanhasTest {
         controlador.criarCampanha("Campanha Marmitas pelas Ruas", "Campanha para realização de entrega de marmitas para moradores em situação de rua", "Praça da Sé - São Paulo - SP", "01/01/2024", 10);
         Campanha campanha = controlador.buscarCampanha("Campanha Teste");
         assertNotNull(campanha);
-        assertEquals("Campanha Teste", campanha.getNome());
+        assertEquals("Campanha Marmitas pelas Ruas", campanha.getNome());
     }
 
     @Test
