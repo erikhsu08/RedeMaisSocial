@@ -2,6 +2,7 @@ package control;
 
 import Entity.Candidatura;
 import Entity.BDCandidaturas;
+import Entity.Vaga;
 
 import java.util.LinkedList;
 
@@ -15,9 +16,11 @@ public class CtrlCandidaturas {
         Candidatura cand = new Candidatura(nome,data_nascimento,descricao);
         BDCandidaturas.getInstance().adicionaCandidatura(cand);
     }
-    //implementar rejeita candidatura(remove candidatura sem diminuir vagas da campanha).
-    public void aceitaCandidatura(Candidatura cand) {
+    public void aceitaCandidatura(Candidatura cand, Vaga vaga) {
+    	BDCandidaturas.getInstance().removeCandidatura(cand);
+    	vaga.setQtd(vaga.getQtd() - 1);
+    }
+    public void rejeitaCandidatura(Candidatura cand) {
     	BDCandidaturas.getInstance().removeCandidatura(cand);
     }
-    //diminuir numero de vagas da campanha.
 }

@@ -4,6 +4,7 @@ public class Candidatura {
     String nome;
     String data_nascimento;
     String descricao;
+    Vaga vaga;
     
     public String getNome() {
         return nome;
@@ -23,11 +24,19 @@ public class Candidatura {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
-    public Candidatura(String nome, String data_nascimento, String descricao) {
+    public Vaga getVaga() {
+    	return vaga;
+    }
+    public void setVaga(Vaga vaga) {
+    	this.vaga = vaga;
+    }
+    
+    public Candidatura(String nome, String data_nascimento, String descricao, Vaga vaga) {
         super();
         this.nome = nome;
         this.data_nascimento = data_nascimento;
         this.descricao = descricao;
+        this.vaga = vaga;
     }
     public Candidatura() {
         nome = "";

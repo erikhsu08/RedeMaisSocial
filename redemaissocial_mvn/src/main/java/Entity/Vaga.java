@@ -14,7 +14,7 @@ public class Vaga {
     public int getQtd() {
         return qtd;
     }
-    public void setQtd(String qtd) {
+    public void setQtd(int qtd) {
         this.qtd = 0;
     }
     public String getCampanha() {
