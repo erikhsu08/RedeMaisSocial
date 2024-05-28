@@ -20,7 +20,7 @@ public class CtrlVagasTest {
 
     @Test
     public void testListarVagas() {
-        Vaga vaga = new Vaga("Vaga Teste", 5, "Campanha Teste");
+        Vaga vaga = new Vaga("Cozinheiro", 5, "Campanha Marmitas pelas Ruas");
         controlador.listarVagas().add(vaga);
         LinkedList<Vaga> vagas = controlador.listarVagas();
         assertFalse(vagas.isEmpty());
@@ -28,10 +28,10 @@ public class CtrlVagasTest {
 
     @Test
     public void testValidaVaga() {
-        Vaga vaga = new Vaga("Vaga Teste", 5, "Campanha Teste");
+        Vaga vaga = new Vaga("Cozinheiro", 5, "Campanha Marmitas pelas Ruas");
         controlador.listarVagas().add(vaga);
-        assertTrue(controlador.validaVaga("Vaga Teste", "Campanha Teste"));
-        assertFalse(controlador.validaVaga("Vaga Invalida", "Campanha Teste"));
+        assertTrue(controlador.validaVaga("Cozinheiro", "Campanha Marmitas pelas Ruas"));
+        assertFalse(controlador.validaVaga("Vaga Invalida", "Campanha Marmitas pelas Ruas"));
     }
 }
 

@@ -20,7 +20,7 @@ public class CtrlCampanhasTest {
 
     @Test
     public void testCriarCampanha() {
-        controlador.criarCampanha("Campanha Teste", "Descrição Teste", "Local Teste", "01/01/2024", 10);
+        controlador.criarCampanha("Campanha Marmitas pelas Ruas", "Campanha para realização de entrega de marmitas para moradores em situação de rua", "Praça da Sé - São Paulo - SP", "01/01/2024", 10);
         Campanha campanha = controlador.buscarCampanha("Campanha Teste");
         assertNotNull(campanha);
         assertEquals("Campanha Teste", campanha.getNome());
@@ -28,16 +28,16 @@ public class CtrlCampanhasTest {
 
     @Test
     public void testListarCampanhas() {
-        controlador.criarCampanha("Campanha Teste", "Descrição Teste", "Local Teste", "01/01/2024", 10);
+        controlador.criarCampanha("Campanha Marmitas pelas Ruas", "Campanha para realização de entrega de marmitas para moradores em situação de rua", "Praça da Sé - São Paulo - SP", "01/01/2024", 10);
         LinkedList<Campanha> campanhas = controlador.listarCampanhas();
         assertFalse(campanhas.isEmpty());
     }
 
     @Test
     public void testAddVagaCampanha() {
-        controlador.criarCampanha("Campanha Teste", "Descrição Teste", "Local Teste", "01/01/2024", 10);
-        Campanha campanha = controlador.buscarCampanha("Campanha Teste");
-        controlador.addVagaCampanha(campanha, "Vaga Teste", 5);
+        controlador.criarCampanha("Campanha Marmitas pelas Ruas", "Campanha para realização de entrega de marmitas para moradores em situação de rua", "Praça da Sé - São Paulo - SP", "01/01/2024", 10);
+        Campanha campanha = controlador.buscarCampanha("Campanha Marmitas pelas Ruas");
+        controlador.addVagaCampanha(campanha, "Cozinheiro", 5);
         assertEquals(1, campanha.getVagas().size());
     }
 }
