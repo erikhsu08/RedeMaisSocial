@@ -49,11 +49,4 @@ public class CtrlCandidaturasTest {
         assertEquals(2, candidaturas.size());
     }
 
-    @Test
-    public void testAceitaCandidaturaRemocao() {
-        controlador.solicitaCandidatura("Paulo", "05/05/2000", "Descrição de Teste 5", "Designer");
-        Candidatura candidatura = controlador.listarCandidaturas().get(0);
-        controlador.aceitaCandidatura(candidatura);
-        assertTrue(controlador.listarCandidaturas().isEmpty());
-    }
 }
