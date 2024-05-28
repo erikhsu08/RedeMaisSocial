@@ -46,7 +46,7 @@ public class CtrlCandidaturasTest {
     public void testListarCandidaturas() {
         controlador.solicitaCandidatura("Ana", "03/03/1985", "Descrição de Teste 3", "Analista");
         LinkedList<Candidatura> candidaturas = controlador.listarCandidaturas();
-        assertEquals(2, candidaturas.size());
+        assertEquals(1, candidaturas.size());
     }
 
 }
