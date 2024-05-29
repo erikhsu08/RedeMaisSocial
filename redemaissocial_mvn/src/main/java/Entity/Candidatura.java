@@ -53,7 +53,7 @@ public class Candidatura {
     }
     @Override
     public String toString() {
-        return "Canditatura [Id=" + id + " Nome do voluntário=" + nome + ", Descrição=" + descricao + ", Data de nascimento=" + data_nascimento + "]";
+        return "Canditatura [Id=" + id + " ,Nome do voluntário=" + nome + ", Descrição=" + descricao + ", Data de nascimento=" + data_nascimento + "]";
     }
 
     

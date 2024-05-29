@@ -13,7 +13,6 @@ public class Menu {
     public static void main(String[] args) {
 
         //Inicialização do Scanner e da variável que guarda as opçóes dos menus
-        @SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
         int opcao = 0;
         int opcao_menu_vagas = 0;
@@ -80,6 +79,7 @@ public class Menu {
                                     if (!controladorVagas.validaVaga(id_vaga_aux, id_camp_aux)) {
                                         System.out.println("Vaga não encontrada."); //Mensagem retornada caso a vaga e ong digitada não correspondam */
                                     }else {//Caso correspondam, o processo de candidatura continua
+                                    	scanner.nextLine(); //limpar buffer
                                         System.out.println("Termos e condições: Pelo presente Termo de Adesão e ciente da Lei n. 9.608/1998 que rege o trabalho voluntário, decido espontaneamente\nrealizar atividade voluntária nesta organização. Declaro, ainda, que estou ciente de que o trabalho não será remunerado e que\nnão configurará vínculo empregatício ou gerará qualquer obrigação de natureza trabalhista, previdenciária ou afim. Declaro, por fim, \nque estou ciente de que eventuais danos pessoais ou materiais causados no exercício do trabalho voluntário serão de total e integral responsabilidade minha e não serão imputados à esta organização.\n");
                                         System.out.println("Aceita os termos (sim / não): ");
                                         String aceite = scanner.nextLine(); //Guarda a resposta de aceitação do usuário
@@ -191,7 +191,6 @@ public class Menu {
                                     for (Vaga vaga: campanha.getVagas()) {
                                     	num_vagas += vaga.getQtd();
                                     }
-                                    System.out.println(num_vagas);
                                     campanha.setNumVagas(num_vagas);
                                     System.out.println(campanha.getNumVagas()); 
                                     

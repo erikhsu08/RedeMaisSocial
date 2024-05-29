@@ -42,7 +42,7 @@ public class Vaga {
 	
 	@Override
     public String toString() {
-        return "Vaga [id=" + id + " titulo=" + titulo + ", qtd=" + qtd + ", campanha=" + campanha + "]";
+        return "Vaga [id=" + id + " titulo=" + titulo + ", qtd=" + qtd + ", campanha=" + campanha.getNome() + ", id da campanha=" + campanha.getId() + "]";
     }
 	
 }
