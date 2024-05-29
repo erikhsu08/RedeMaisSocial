@@ -33,7 +33,7 @@ public class CtrlVagasTest {
     public void testValidaVaga() {
         Vaga vaga = new Vaga(4, "Cozinheiro", 5, campanha);
         controlador.listarVagas().add(vaga);
-        assertTrue(controlador.validaVaga(3, 4));
+        assertTrue(controlador.validaVaga(4, 1));
         assertFalse(controlador.validaVaga(5, 6));
     }
 
