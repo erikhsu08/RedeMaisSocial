@@ -1,6 +1,6 @@
 package redemaissocial_mvn.redemaissocial_mvn;
 
-import Entity.Campanha;
+import Entity.Campanha; 
 import Entity.Vaga;
 import control.CtrlVagas;
 import org.junit.Before;
@@ -24,7 +24,7 @@ public class CtrlVagasTest {
     @Test
     public void testListarVagas() {
         Vaga vaga = new Vaga(4, "Cozinheiro", 5, campanha);
-        controlador.listarVagas().add(vaga);
+        controlador.adicionarVaga(vaga);
         LinkedList<Vaga> vagas = controlador.listarVagas();
         assertFalse(vagas.isEmpty());
     }
@@ -32,7 +32,7 @@ public class CtrlVagasTest {
     @Test
     public void testValidaVaga() {
         Vaga vaga = new Vaga(4, "Cozinheiro", 5, campanha);
-        controlador.listarVagas().add(vaga);
+        controlador.adicionarVaga(vaga);
         assertTrue(controlador.validaVaga(3, 4));
         assertFalse(controlador.validaVaga(5, 6));
     }
@@ -40,7 +40,7 @@ public class CtrlVagasTest {
     @Test
     public void testVagaInvalida() {
         Vaga vaga = new Vaga(4, "Cozinheiro", 5, campanha);
-        controlador.listarVagas().add(vaga);
+        controlador.adicionarVaga(vaga);
         // Testando uma vaga que é claramente inválida
         assertFalse(controlador.validaVaga(7, 8));
     }
