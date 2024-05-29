@@ -1,6 +1,6 @@
 package redemaissocial_mvn.redemaissocial_mvn;
 
-import Entity.Campanha;
+import Entity.Campanha; 
 import Entity.Vaga;
 import org.junit.Before;
 import org.junit.Test;
@@ -14,6 +14,7 @@ public class VagaTest {
 
     @Before
     public void setUp() {
+    	campanha = new Campanha(0, "Campanha Teste", "Descricao teste", "Sao Paulo", "01/01/2024", 30);
         vaga = new Vaga(6, "Vaga Teste", 5, campanha);
     }
 
@@ -21,6 +22,6 @@ public class VagaTest {
     public void testVaga() {
         assertEquals("Vaga Teste", vaga.getTitulo());
         assertEquals(5, vaga.getQtd());
-        assertEquals("Campanha Teste", vaga.getCampanha());
+        assertEquals(campanha, vaga.getCampanha());
     }
 }

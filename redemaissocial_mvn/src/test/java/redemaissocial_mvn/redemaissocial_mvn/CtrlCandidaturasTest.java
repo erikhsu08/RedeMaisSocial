@@ -1,5 +1,8 @@
 package redemaissocial_mvn.redemaissocial_mvn;
 
+import Entity.BDCandidaturas;
+import Entity.BDVagas;
+import Entity.Campanha;
 import Entity.Candidatura;
 import Entity.Vaga;
 import control.CtrlCandidaturas;
@@ -17,6 +20,12 @@ public class CtrlCandidaturasTest {
     @Before
     public void setUp() {
         controlador = new CtrlCandidaturas();
+        BDVagas.getInstance().listarVagas().clear();
+        BDCandidaturas.getInstance().listarCandidaturas().clear();
+        
+        Campanha campanha = new Campanha(0, "Campanha Teste", "Descricao Teste", "Sao Paulo", "01/01/2024",30);
+        Vaga vaga = new Vaga(7, "Vaga Teste", 5, campanha);
+        BDVagas.getInstance().adicionarVaga(vaga);
     }
 
     @Test
@@ -29,7 +38,9 @@ public class CtrlCandidaturasTest {
     @Test
     public void testAceitaCandidatura() {
         controlador.solicitaCandidatura(0, "João", "01/01/2000", "Descrição Teste", 7);
-        Candidatura candidatura = controlador.listarCandidaturas().get(0);
+        LinkedList<Candidatura> candidaturas = controlador.listarCandidaturas();
+        assertFalse(candidaturas.isEmpty()); // Certifica-se de que a lista não está vazia
+        Candidatura candidatura = candidaturas.get(0);
         controlador.aceitaCandidatura(candidatura);
         assertTrue(controlador.listarCandidaturas().isEmpty());
     }
@@ -37,7 +48,9 @@ public class CtrlCandidaturasTest {
     @Test
     public void testRejeitaCandidatura() {
         controlador.solicitaCandidatura(0, "Maria", "02/02/1990", "Descrição de Teste 2", 7);
-        Candidatura candidatura = controlador.listarCandidaturas().get(0);
+        LinkedList<Candidatura> candidaturas = controlador.listarCandidaturas();
+        assertFalse(candidaturas.isEmpty()); // Certifica-se de que a lista não está vazia
+        Candidatura candidatura = candidaturas.get(0);
         controlador.rejeitaCandidatura(candidatura);
         assertTrue(controlador.listarCandidaturas().isEmpty());
     }

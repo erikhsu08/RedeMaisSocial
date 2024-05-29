@@ -24,10 +24,7 @@ public class CtrlCandidaturas {
     
     public boolean validaCandidatura(int id) {
     	Candidatura cand = GetCandPorId(listarCandidaturas(), id);
-    	if (cand == null) {
-    		return false;
-    	}
-    	return true;
+    	return cand != null;
     }
     
     public void solicitaCandidatura(int id_cand, String nome, String data_nascimento, String descricao, int id_vaga){
