@@ -43,6 +43,7 @@ public class CtrlCandidaturas {
     public void aceitaCandidatura(Candidatura cand) {
     	//Diminui em 1 a quantidades de espacos na vaga
     	cand.getVaga().setQtd(cand.getVaga().getQtd() - 1);
+    	cand.getVaga().getCampanha().setNumVagas(cand.getVaga().getCampanha().getNumVagas() - 1);
     	
     	//Deleta a candidatura
     	BDCandidaturas.getInstance().removeCandidatura(cand);

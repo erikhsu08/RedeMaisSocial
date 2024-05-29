@@ -22,7 +22,7 @@ public class Vaga {
         return qtd;
     }
     public void setQtd(int qtd) {
-        this.qtd = 0;
+        this.qtd = qtd;
     }
     public Campanha getCampanha() {
         return campanha;
