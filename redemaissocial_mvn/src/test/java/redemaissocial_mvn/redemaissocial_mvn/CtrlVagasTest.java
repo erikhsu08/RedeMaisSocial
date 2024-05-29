@@ -17,6 +17,7 @@ public class CtrlVagasTest {
 
     @Before
     public void setUp() {
+    	campanha = new Campanha(1, "Campanha Teste", "Descrição Teste", "Local Teste", "01/01/2024", 30);
         controlador = new CtrlVagas();
     }
 
