@@ -14,12 +14,12 @@ public class CampanhaTest {
 
     @Before
     public void setUp() {
-        campanha = new Campanha("Campanha Teste", "Descrição Teste", "Local Teste", "01/01/2024", 10);
+        campanha = new Campanha(0, "Campanha Teste", "Descrição Teste", "Local Teste", "01/01/2024", 10);
     }
 
     @Test
     public void testAdicionarVaga() {
-        Vaga vaga = new Vaga("Vaga Teste", 5, "Campanha Teste");
+        Vaga vaga = new Vaga(0, "Vaga Teste", 5, campanha);
         campanha.adicionarVaga(vaga);
         assertEquals(1, campanha.getVagas().size());
     }

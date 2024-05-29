@@ -20,24 +20,24 @@ public class CtrlCampanhasTest {
 
     @Test
     public void testCriarCampanha() {
-        controlador.criarCampanha("Campanha Marmitas pelas Ruas", "Campanha para realização de entrega de marmitas para moradores em situação de rua", "Praça da Sé - São Paulo - SP", "01/01/2024", 10);
-        Campanha campanha = controlador.buscarCampanha("Campanha Marmitas pelas Ruas");
+        controlador.criarCampanha(3, "Campanha Marmitas pelas Ruas", "Campanha para realização de entrega de marmitas para moradores em situação de rua", "Praça da Sé - São Paulo - SP", "01/01/2024", 10);
+        Campanha campanha = controlador.buscarCampanha(3);
         assertNotNull(campanha);
         assertEquals("Campanha Marmitas pelas Ruas", campanha.getNome());
     }
 
     @Test
     public void testListarCampanhas() {
-        controlador.criarCampanha("Campanha Marmitas pelas Ruas", "Campanha para realização de entrega de marmitas para moradores em situação de rua", "Praça da Sé - São Paulo - SP", "01/01/2024", 10);
+        controlador.criarCampanha(4, "Campanha Marmitas pelas Ruas", "Campanha para realização de entrega de marmitas para moradores em situação de rua", "Praça da Sé - São Paulo - SP", "01/01/2024", 10);
         LinkedList<Campanha> campanhas = controlador.listarCampanhas();
         assertFalse(campanhas.isEmpty());
     }
 
     @Test
     public void testAddVagaCampanha() {
-        controlador.criarCampanha("Campanha Marmitas pelas Ruas", "Campanha para realização de entrega de marmitas para moradores em situação de rua", "Praça da Sé - São Paulo - SP", "01/01/2024", 10);
-        Campanha campanha = controlador.buscarCampanha("Campanha Marmitas pelas Ruas");
-        controlador.addVagaCampanha(campanha, "Cozinheiro", 5);
+        controlador.criarCampanha(5, "Campanha Marmitas pelas Ruas", "Campanha para realização de entrega de marmitas para moradores em situação de rua", "Praça da Sé - São Paulo - SP", "01/01/2024", 10);
+        Campanha campanha = controlador.buscarCampanha(5);
+        controlador.addVagaCampanha(3, campanha, "Cozinheiro", 5);
         assertEquals(1, campanha.getVagas().size());
     }
 }

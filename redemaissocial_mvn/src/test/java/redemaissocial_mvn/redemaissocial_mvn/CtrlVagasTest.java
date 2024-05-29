@@ -1,5 +1,6 @@
 package redemaissocial_mvn.redemaissocial_mvn;
 
+import Entity.Campanha;
 import Entity.Vaga;
 import control.CtrlVagas;
 import org.junit.Before;
@@ -12,6 +13,7 @@ import static org.junit.Assert.*;
 public class CtrlVagasTest {
 
     private CtrlVagas controlador;
+    private Campanha campanha;
 
     @Before
     public void setUp() {
@@ -20,7 +22,7 @@ public class CtrlVagasTest {
 
     @Test
     public void testListarVagas() {
-        Vaga vaga = new Vaga("Cozinheiro", 5, "Campanha Marmitas pelas Ruas");
+        Vaga vaga = new Vaga(4, "Cozinheiro", 5, campanha);
         controlador.listarVagas().add(vaga);
         LinkedList<Vaga> vagas = controlador.listarVagas();
         assertFalse(vagas.isEmpty());
@@ -28,17 +30,17 @@ public class CtrlVagasTest {
 
     @Test
     public void testValidaVaga() {
-        Vaga vaga = new Vaga("Cozinheiro", 5, "Campanha Marmitas pelas Ruas");
+        Vaga vaga = new Vaga(4, "Cozinheiro", 5, campanha);
         controlador.listarVagas().add(vaga);
-        assertTrue(controlador.validaVaga("Cozinheiro", "Campanha Marmitas pelas Ruas"));
-        assertFalse(controlador.validaVaga("Vaga Invalida", "Campanha Marmitas pelas Ruas"));
+        assertTrue(controlador.validaVaga(3, 4));
+        assertFalse(controlador.validaVaga(5, 6));
     }
 
     @Test
     public void testVagaInvalida() {
-        Vaga vaga = new Vaga("Cozinheiro", 5, "Campanha Marmitas pelas Ruas");
+        Vaga vaga = new Vaga(4, "Cozinheiro", 5, campanha);
         controlador.listarVagas().add(vaga);
         // Testando uma vaga que é claramente inválida
-        assertFalse(controlador.validaVaga("Engenheiro", "Campanha Inexistente"));
+        assertFalse(controlador.validaVaga(7, 8));
     }
 }

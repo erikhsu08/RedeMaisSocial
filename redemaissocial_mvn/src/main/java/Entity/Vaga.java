@@ -1,10 +1,17 @@
 package Entity;
 
 public class Vaga {
+	int id;
     String titulo;
-    String campanha;
+    Campanha campanha;
     int qtd;
-
+    
+    public int getId() {
+    	return id;
+    }
+    public void setId(int id) {
+    	this.id = id;
+    }
     public String getTitulo() {
         return titulo;
     }
@@ -17,16 +24,17 @@ public class Vaga {
     public void setQtd(int qtd) {
         this.qtd = 0;
     }
-    public String getCampanha() {
+    public Campanha getCampanha() {
         return campanha;
     }
 
-    public void setCampanha(String campanha) {
+    public void setCampanha(Campanha campanha) {
         this.campanha = campanha;
     }
 
 
-	public Vaga(String titulo, int quantidade, String campanha) {
+	public Vaga(int id, String titulo, int quantidade, Campanha campanha) {
+		this.id = id;
 		this.titulo = titulo;
 		this.qtd = quantidade;
 		this.campanha = campanha;
@@ -34,7 +42,7 @@ public class Vaga {
 	
 	@Override
     public String toString() {
-        return "Vaga [titulo=" + titulo + ", qtd=" + qtd + ", campanha=" + campanha + "]";
+        return "Vaga [id=" + id + " titulo=" + titulo + ", qtd=" + qtd + ", campanha=" + campanha + "]";
     }
 	
 }

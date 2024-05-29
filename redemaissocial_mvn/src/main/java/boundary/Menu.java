@@ -13,10 +13,15 @@ public class Menu {
     public static void main(String[] args) {
 
         //Inicialização do Scanner e da variável que guarda as opçóes dos menus
-        Scanner scanner = new Scanner(System.in);
+        @SuppressWarnings("resource")
+		Scanner scanner = new Scanner(System.in);
         int opcao = 0;
         int opcao_menu_vagas = 0;
         
+        //Inicializacao dos ids de objetos individuais
+        int id_campanha = 0;
+        int id_vaga = 0;
+        int id_candidatura = 0;
         
         //Iniciando controllers 
         CtrlVagas controladorVagas = new CtrlVagas();
@@ -65,13 +70,14 @@ public class Menu {
                                     break;
                                 case 2:
 
-                                    System.out.print("Digite o nome da campanha em que você quer se candidatar: ");
-                                    String nomeCampanha = scanner.nextLine();
+                                    System.out.print("Digite o id da campanha em que você quer se candidatar: ");
+                                    int id_camp_aux = scanner.nextInt();
 
                                     // Capturar o título da vaga
-                                    System.out.print("Digite o título da vaga que você quer se candidatar: ");
-                                    String titulo = scanner.nextLine();
-                                    if (!controladorVagas.validaVaga(titulo, nomeCampanha)) {
+                                    System.out.print("Digite o id da vaga que você quer se candidatar: ");
+                                    int id_vaga_aux = scanner.nextInt();
+                                    
+                                    if (!controladorVagas.validaVaga(id_vaga_aux, id_camp_aux)) {
                                         System.out.println("Vaga não encontrada."); //Mensagem retornada caso a vaga e ong digitada não correspondam */
                                     }else {//Caso correspondam, o processo de candidatura continua
                                         System.out.println("Termos e condições: Pelo presente Termo de Adesão e ciente da Lei n. 9.608/1998 que rege o trabalho voluntário, decido espontaneamente\nrealizar atividade voluntária nesta organização. Declaro, ainda, que estou ciente de que o trabalho não será remunerado e que\nnão configurará vínculo empregatício ou gerará qualquer obrigação de natureza trabalhista, previdenciária ou afim. Declaro, por fim, \nque estou ciente de que eventuais danos pessoais ou materiais causados no exercício do trabalho voluntário serão de total e integral responsabilidade minha e não serão imputados à esta organização.\n");
@@ -90,8 +96,9 @@ public class Menu {
                                             System.out.println("Descrição (um breve resumo sobre você e motivação de sua candidatura): ");
                                             String descricao = scanner.nextLine();
                                             //candidatura.setDescricao(descricao);
-                                            controladorCandidaturas.solicitaCandidatura(nome,data_nascimento,descricao,titulo);
+                                            controladorCandidaturas.solicitaCandidatura(id_candidatura, nome,data_nascimento,descricao,id_vaga_aux);
                                             //listaCandidaturas.add(candidatura); //Adiciona a candidatura criada na lista de candidaturas
+                                            id_candidatura += 1;
                                             System.out.println("Candidatura realizada com sucesso!\n");
                                         } else {//Caso o usuário não concorde com os termos, o processo de candidatura é finalizado e é voltado para o menu de opções
                                             break;
@@ -152,9 +159,11 @@ public class Menu {
                                     //campanha.setData(data_campanha);
   
                                     int num_vagas = 0;
-                                    controladorCampanhas.criarCampanha(nome_camp, desc_camp, local_camp, data_camp, num_vagas);
+                         
+                                    controladorCampanhas.criarCampanha(id_campanha, nome_camp, desc_camp, local_camp, data_camp, num_vagas);
+                    
                                     
-                                    Campanha campanha = controladorCampanhas.buscarCampanha(nome_camp);
+                                    Campanha campanha = controladorCampanhas.buscarCampanha(id_campanha);
                                     
                                     //Menu para adicionar tipos de vagas diferentes e suas quantidades
                                     System.out.println("Agora, adicione os tipos de vagas disponíveis e suas quantidades (ou sair)");
@@ -171,7 +180,8 @@ public class Menu {
                                             System.out.println("Digite a quantidade de vagas disponíveis para essa vaga: (Exemplo: 5) \n");
                                             int qtd_titulo_vaga = scanner.nextInt();
                                             
-                                            controladorCampanhas.addVagaCampanha(campanha, titulo_vaga, qtd_titulo_vaga);
+                                            controladorCampanhas.addVagaCampanha(id_vaga, campanha, titulo_vaga, qtd_titulo_vaga);
+                                            id_vaga += 1;
                                             
                                             System.out.println("Vaga adicionada com sucesso.\n");
                                         }
@@ -187,6 +197,7 @@ public class Menu {
                                     
                                     //listaCampanhas.add(campanha); //Adiciona a campanha criada na lista de campanhas
                                     System.out.println("Campanha criada com sucesso!\n");
+                                    id_campanha += 1;
                                     break;
                                 case 3:
                                 	//Lista as canditaturas 
@@ -197,21 +208,31 @@ public class Menu {
                                         for (Candidatura cand : listaCandidaturas) {
                                             System.out.println(cand.toString()); // Imprime a representação textual da vaga
                                         }
-                                      //Seleciona uma candidatura para revisar e aceita ou rejeita-a
-                                    	System.out.println("Qual candidatura deseja revisar? (Digite sua posicao na lista)\n");
-                                    	int index = scanner.nextInt() - 1;
+                                        
+                                    	System.out.println("Qual candidatura deseja revisar? (Digite o id da candidatura)\n");
+                                    	int id_cand_aux = scanner.nextInt();
                                         scanner.nextLine();
-                                    	Candidatura cand = listaCandidaturas.get(index);
-                                    	System.out.println("Deseja aceitar a candidatura do candidato " + cand.getNome() + "? (sim / não):\n");
-                                    	String aceite = scanner.nextLine();
-                                    	if (aceite.equals("sim")) {
-                                    		controladorCandidaturas.aceitaCandidatura(cand);
-                                    		System.out.println("Candidatura aceita!");
-                                    	}
-                                    	else {
-                                    		controladorCandidaturas.rejeitaCandidatura(cand);
-                                    		System.out.println("Candidatura rejeitada!");
-                                    	}
+                                        
+                                        if(!controladorCandidaturas.validaCandidatura(id_cand_aux)) {
+                                        	System.out.println("Não existe uma candidatura com esse Id");
+                                        }
+                                        else {
+                                        	Candidatura cand = controladorCandidaturas.GetCandPorId(listaCandidaturas, id_cand_aux);
+                                        	
+                                        	//Seleciona uma candidatura para revisar e aceita ou rejeita-a                                        	                  
+                                        	System.out.println("Deseja aceitar a candidatura do candidato " + cand.getNome() + "? (sim / não):\n");
+                                        	String aceite = scanner.nextLine();
+                                        	if (aceite.equals("sim")) {
+                                        		controladorCandidaturas.aceitaCandidatura(cand);
+                                        		System.out.println("Candidatura aceita!");
+                                        	}
+                                        	else {
+                                        		controladorCandidaturas.rejeitaCandidatura(cand);
+                                        		System.out.println("Candidatura rejeitada!");
+                                        	}
+                                        }
+                                     
+                                     
                                     }                                                          
                                 	break;
                                 case 4:

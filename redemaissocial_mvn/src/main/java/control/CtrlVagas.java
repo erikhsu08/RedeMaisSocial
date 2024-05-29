@@ -11,9 +11,9 @@ public class CtrlVagas {
         return BDVagas.getInstance().listarVagas();
     }
 
-    public boolean validaVaga(String titulo, String nomeCampanha) {
+    public boolean validaVaga(int id_vaga, int id_campanha) {
         for (Vaga vaga : BDVagas.getInstance().listarVagas()) {
-            if (vaga.getTitulo().equalsIgnoreCase(titulo) && vaga.getCampanha().equalsIgnoreCase(nomeCampanha)) {
+            if (vaga.getId() == id_vaga && vaga.getCampanha().getId() == id_campanha) {
                 return true;
             }
         }

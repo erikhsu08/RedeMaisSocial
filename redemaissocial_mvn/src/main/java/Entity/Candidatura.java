@@ -1,11 +1,18 @@
 package Entity;
 
 public class Candidatura {
+	int id;
     String nome;
     String data_nascimento;
     String descricao;
     Vaga vaga;
     
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
     public String getNome() {
         return nome;
     }
@@ -31,7 +38,7 @@ public class Candidatura {
     	this.vaga = vaga;
     }
     
-    public Candidatura(String nome, String data_nascimento, String descricao, Vaga vaga) {
+    public Candidatura(int id, String nome, String data_nascimento, String descricao, Vaga vaga) {
         super();
         this.nome = nome;
         this.data_nascimento = data_nascimento;
@@ -39,13 +46,14 @@ public class Candidatura {
         this.vaga = vaga;
     }
     public Candidatura() {
+    	id = 0;
         nome = "";
         data_nascimento = "";
         descricao = "";
     }
     @Override
     public String toString() {
-        return "Canditatura [Nome do voluntário=" + nome + ", Descrição=" + descricao + ", Data de nascimento=" + data_nascimento + "]";
+        return "Canditatura [Id=" + id + " Nome do voluntário=" + nome + ", Descrição=" + descricao + ", Data de nascimento=" + data_nascimento + "]";
     }
 
     

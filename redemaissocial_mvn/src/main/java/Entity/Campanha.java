@@ -4,6 +4,7 @@ import java.util.LinkedList;
 
 
 public class Campanha {
+	int id;
 	String nome;
 	String descricao;
 	String local;
@@ -11,6 +12,12 @@ public class Campanha {
 	int num_vagas;
 	LinkedList<Vaga> vagas;
 	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getNome() {
 		return nome;
 	}
@@ -42,8 +49,9 @@ public class Campanha {
 		this.num_vagas = num_vagas;
 	}
 	
-	public Campanha(String nome, String descricao, String local, String data, int num_vagas) {
+	public Campanha(int id, String nome, String descricao, String local, String data, int num_vagas) {
 		super();
+		this.id = id;
 		this.nome = nome;
 		this.descricao = descricao;
 		this.local = local;
@@ -65,7 +73,7 @@ public class Campanha {
 	
 	@Override
     public String toString() {
-        return "Campanha [nome=" + nome + ", descricao=" + descricao + ", local=" + local + ", data=" + data
+        return "Campanha [id=" + id + "nome=" + nome + ", descricao=" + descricao + ", local=" + local + ", data=" + data
                 + ", num_vagas=" + num_vagas + ", vagas=" + vagas + "]";
     }
 	

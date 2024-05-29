@@ -24,9 +24,9 @@ public class BDCampanhas {
 		return this.listaCampanhas;
 	}
 	
-	public Campanha buscarCampanha(String nome) {
+	public Campanha buscarCampanha(int id) {
 		for (Campanha campanha : listaCampanhas) {
-			if (campanha.getNome().equalsIgnoreCase(nome)) {
+			if (campanha.getId() == id) {
 				return campanha;
 			}
 		}

@@ -13,10 +13,27 @@ public class CtrlCandidaturas {
     	return BDCandidaturas.getInstance().listarCandidaturas();
     }
     
-    public void solicitaCandidatura(String nome, String data_nascimento, String descricao, String tituloDaVaga){
+    public Candidatura GetCandPorId(LinkedList<Candidatura> candidaturas, int id) {
+    	for (Candidatura cand: candidaturas) {
+    		if (cand.getId() == id) {
+    			return cand;
+    		}
+    	}
+    	return null;
+    }
+    
+    public boolean validaCandidatura(int id) {
+    	Candidatura cand = GetCandPorId(listarCandidaturas(), id);
+    	if (cand == null) {
+    		return false;
+    	}
+    	return true;
+    }
+    
+    public void solicitaCandidatura(int id_cand, String nome, String data_nascimento, String descricao, int id_vaga){
     	for (Vaga vaga : BDVagas.getInstance().listarVagas()) {
-              if (vaga.getTitulo().equalsIgnoreCase(tituloDaVaga)) {
-            	  Candidatura cand = new Candidatura(nome,data_nascimento,descricao, vaga);
+              if (vaga.getId() == id_vaga) {
+            	  Candidatura cand = new Candidatura(id_cand, nome,data_nascimento,descricao,vaga);
                   BDCandidaturas.getInstance().adicionaCandidatura(cand);
                   break;
               }
