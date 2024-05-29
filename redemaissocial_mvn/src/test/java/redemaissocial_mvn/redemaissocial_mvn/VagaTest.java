@@ -14,6 +14,7 @@ public class VagaTest {
 
     @Before
     public void setUp() {
+        campanha = new Campanha("Campannha Teste", 10);
         vaga = new Vaga(6, "Vaga Teste", 5, campanha);
     }
 
