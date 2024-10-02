@@ -7,7 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
-
+//teste
 public class CampanhaTest {
 
     private Campanha campanha;
